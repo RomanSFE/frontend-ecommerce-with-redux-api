@@ -6,8 +6,10 @@ import NavBar from './NavBar'
 import Loader from "./Loader"
 import Message from "./Message"
 import ShopByCat from "./sections/ShopByCat"
+import Meta from "./Meta"
 
 import { ListProductDetails } from '../actions/productActions'
+import TrendingProducts from "./sections/TrendingProducts"
 
 const ProductDetailsSc = () => {
   const dispatch = useDispatch()
@@ -31,23 +33,20 @@ const ProductDetailsSc = () => {
               {loading ? <Loader/> : error ? <h3><Message>{error}</Message></h3> : 
                 <div className="productDetailsMainWrap">
                   <div className="row">
-                    <div className="col-md-5 col-sm-6 col-12">
+                    <div className="col-md-6 col-sm-6 col-12">
+                      <Meta title={product.title} description={product.description}/>
                       <div className="productLgImg">
                         <img src={product.image} alt={product.altname}/>
                       </div>
-                      <div className="productListSmimage">
-                        <ul>
-                          <li><img src={require('../assets/global-shoppng-12.png')} alt="logo"/></li>
-                          <li><img src={require('../assets/jersey-img.jpg')} alt="logo"/></li>
-                          <li><img src={require('../assets/women-fas-cat-6.png')} alt="logo"/></li>
-                        </ul>
-                      </div>
                     </div>
-                    <div className="col-md-7 col-sm-6 col-12">
+                    <div className="col-md-6 col-sm-6 col-12">
                       <div className="productDetailsText">
                           <h1>{product.title}</h1>
-                          <p>Price : <strong>$ {product.price}</strong></p>
-                          <h5>Category : <strong> {product.category}</strong></h5>
+                          <h5>{product.category}</h5>
+                          <div className="prod-desc">
+                            <p>{product.description}</p>
+                          </div>
+                          <p><strong>$ {product.price}</strong></p>
                       </div>
                       <div className="productAddtoCartBuyBtn">
                         <ul>
@@ -65,21 +64,9 @@ const ProductDetailsSc = () => {
         </div>
         {/* Product Details Section End */}
 
-        {/* Product Desc  */}
-        <div className="prodDescMainBox">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 col-12">
-                <div className="prodDescMainBoxCont">
-                  <p>
-                    {product.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="trendingproduct-main-hm">
+          <TrendingProducts/>
         </div>
-        {/* Product Desc End  */}
 
         <div className="shopbycate-main-box-hm">
           <ShopByCat/>

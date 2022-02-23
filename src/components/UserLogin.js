@@ -76,6 +76,12 @@ const UserLogin = () => {
                                     New Customer ? <span><Link to="/">Register Now</Link></span>
                                 </div>
                             </div>
+
+                            <div className="example-sec">
+                                <h5>User Info From API</h5>
+                                <p>User Name: <span>mor_2314</span></p>
+                                <p>Password: <span>83r5^_</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>

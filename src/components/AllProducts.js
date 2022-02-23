@@ -8,6 +8,7 @@ import Message from './Message'
 import Loader from './Loader'
 
 import { listProducts } from '../actions/productActions'
+import Meta from "./Meta"
 
 const AllProducts = () => {
     const dispatch = useDispatch()
@@ -15,7 +16,6 @@ const AllProducts = () => {
     const productList = useSelector((state) => state.productList)
     const { loading, error, products } = productList
 
-    console.log(products)
 
     // Load More Button
     const [visible, setVisible] = useState(6)
@@ -30,6 +30,7 @@ const AllProducts = () => {
 
     return (
         <>
+        <Meta/>
         <div className="BannerHomeBox">
             <HomeBannerCompo/>
         </div>
